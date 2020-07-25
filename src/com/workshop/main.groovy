@@ -9,7 +9,6 @@ def main(script) {
    c = new Config()
    sprebuild = new prebuild()
    sbuild = new build()
-   spostbuild = new postbuild()
    sdeploy = new deploy()
    spostdeploy = new postdeploy()
  
@@ -68,6 +67,10 @@ def main(script) {
  
        stage('Service Healthcheck') {
            spostdeploy.healthcheck(p)
+       }
+ 
+       stage('Delete Old Image'){
+           spostdeploy.deleteOldImage(p)
        }
    }
 }
