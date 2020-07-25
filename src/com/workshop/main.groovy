@@ -9,8 +9,8 @@ def main(script) {
    c = new Config()
    sprebuild = new prebuild()
    sbuild = new build()
-   spostbuild = new postbuild()
    sdeploy = new deploy()
+   spostbuild = new postbuild()
    spostdeploy = new postdeploy()
  
    // Pipeline specific variable get from injected env
@@ -68,6 +68,10 @@ def main(script) {
  
        stage('Service Healthcheck') {
            spostdeploy.healthcheck(p)
+       }
+ 
+       stage('Delete Old Image'){
+           spostdeploy.deleteOldImage(p)
        }
    }
 }
