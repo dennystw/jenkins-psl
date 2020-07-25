@@ -9,6 +9,7 @@ def main(script) {
    c = new Config()
    sprebuild = new prebuild()
    sbuild = new build()
+   spostbuild = new postbuild()
    sdeploy = new deploy()
    spostdeploy = new postdeploy()
  
