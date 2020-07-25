@@ -9,6 +9,7 @@ def main(script) {
    c = new Config()
    sprebuild = new prebuild()
    sbuild = new build()
+   spostbuild = new postbuild()
  
    // Pipeline specific variable get from injected env
    // Mandatory variable will be check at details & validation steps
@@ -23,7 +24,7 @@ def main(script) {
    def docker_registry = ("${script.env.docker_registry}" != "null") ? "${script.env.docker_registry}" : "${c.default_docker_registry}"
  
    // Initialize docker tools
-  def dockerTool = tool name: 'docker', type: 'dockerTool'
+   def dockerTool = tool name: 'docker', type: 'dockerTool'
  
    // Pipeline object
    p = new Pipeline(
@@ -51,9 +52,9 @@ def main(script) {
            sbuild.build(p)
        }
  
-       //stage('Merge') {
-           // TODO: Call merge function
-       //}
+       stage('Merge') {
+           spostbuild.merge(p)
+       }
  
        //stage('Deploy') {
            // TODO: Call deploy function
