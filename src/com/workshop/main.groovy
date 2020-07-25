@@ -11,15 +11,19 @@ def main(script) {
    sbuild = new build()
    spostbuild = new postbuild()
    sdeploy = new deploy()
+   spostdeploy = new postdeploy()
  
    // Pipeline specific variable get from injected env
-   // Mandatory variable will be check at details & validation steps
+   // Mandatory variable wil be check at details & validation steps
    def repository_name = ("${script.env.repository_name}" != "null") ? "${script.env.repository_name}" : ""
    def branch_name = ("${script.env.branch_name}" != "null") ? "${script.env.branch_name}" : ""
    def git_user = ("${script.env.git_user}" != "null") ? "${script.env.git_user}" : ""
    def docker_user = ("${script.env.docker_user}" != "null") ? "${script.env.docker_user}" : ""
    def app_port = ("${script.env.app_port}" != "null") ? "${script.env.app_port}" : ""
    def pr_num = ("${script.env.pr_num}" != "null") ? "${script.env.pr_num}" : ""
+ 
+   // Timeout for Healtcheck
+   def timeout_hc = (script.env.timeout_hc != "null") ? script.env.timeout_hc : 10
  
    // Have default value
    def docker_registry = ("${script.env.docker_registry}" != "null") ? "${script.env.docker_registry}" : "${c.default_docker_registry}"
@@ -36,7 +40,8 @@ def main(script) {
        app_port,
        pr_num,
        dockerTool,
-       docker_registry
+       docker_registry,
+       timeout_hc
    )
  
    ansiColor('xterm') {
@@ -61,9 +66,9 @@ def main(script) {
            sdeploy.deploy(p)
        }
  
-       //stage('Service Healthcheck') {
-           // TODO: Call healthcheck function
-       //}
+       stage('Service Healthcheck') {
+           spostdeploy.healthcheck(p)
+       }
    }
 }
  
