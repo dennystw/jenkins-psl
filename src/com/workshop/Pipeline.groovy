@@ -10,7 +10,7 @@ class Pipeline {
     String app_port
     String pr_num
 
-    // Set pipeline struct / constructor / test jenkins job
+    // Set pipeline struct / constructor / test jenkins job asdad
    Pipeline(String repository_name, String branch_name, String git_user, String docker_user, String app_port, String pr_num){
        this.repository_name = repository_name
        this.branch_name = branch_name
