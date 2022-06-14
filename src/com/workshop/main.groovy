@@ -3,6 +3,7 @@ package com.workshop
 
 import com.workshop.Config
 import com.workshop.stages.*
+import com.workshop.Pipeline
 
 def main(script) {
     // Object initialization
@@ -43,7 +44,7 @@ def main(script) {
 
         stage('Pre Build - Details') {
             sprebuild.validation(p)
-            sprebuild.details(p)
+            // sprebuild.details(p)
         }
  
         // stage('Pre Build - Checkout & Test') {
