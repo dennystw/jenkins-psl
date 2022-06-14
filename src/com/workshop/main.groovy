@@ -37,13 +37,13 @@ def main(script) {
         //     println "Hello!"
         // }
         
-        //stage('Pre Build - Details') {
-           // TODO: Call pre build details function
-       //}
+        stage('Pre Build - Details') {
+           TODO: Call pre build details function
+       }
  
-       //stage('Pre Build - Checkout & Test') {
-           // TODO: Call pre build checkout & test function
-       //}
+       stage('Pre Build - Checkout & Test') {
+           TODO: Call pre build checkout & test function
+       }
  
        //stage('Build & Push Image') {
            // TODO: Call build & push image function
