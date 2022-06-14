@@ -38,7 +38,7 @@ def main(script) {
         // }
         
         // prebuild 
-        stage('Pre Build - Details') {
+       stage('Pre Build - Details') {
            TODO: Call pre build details function
        }
  
