@@ -18,7 +18,7 @@ def details(Pipeline p) {
    println("\u001b[36mMerging to branch : \u001b[0m${p.branch_name}")
 }
 
-// 
+// asdas
 def validation(Pipeline p) {
     println envVars['JD_TO_PULL']
    if(!p.repository_name) {
