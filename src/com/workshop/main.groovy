@@ -38,9 +38,9 @@ def main(script) {
     // Pipeline object
 
     ansiColor('xterm') {
-        stage('Test stage') {
-            println "Hello!"
-        }
+        // stage('Test stage') {
+        //     println "Hello!"
+        // }
 
         stage('Pre Build - Details') {
             sprebuild.validation(p)
