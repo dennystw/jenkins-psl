@@ -36,15 +36,24 @@ def main(script) {
         // stage('Test stage') {
         //     println "Hello!"
         // }
-        
-        // prebuild 
-       stage('Pre Build - Details') {
-           TODO: Call pre build details function
-       }
+
+        stage('Pre Build - Details') {
+            sprebuild.validation(p)
+            prebuild.details(p)
+        }
  
-       stage('Pre Build - Checkout & Test') {
-           TODO: Call pre build checkout & test function
-       }
+        stage('Pre Build - Checkout & Test') {
+            sprebuild.checkoutBuildTest(p)
+        }
+
+        // prebuild 
+    //    stage('Pre Build - Details') {
+    //        TODO: Call pre build details function
+    //    }
+ 
+    //    stage('Pre Build - Checkout & Test') {
+    //        TODO: Call pre build checkout & test function
+    //    }
  
        //stage('Build & Push Image') {
            // TODO: Call build & push image function
