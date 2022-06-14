@@ -44,7 +44,7 @@ def main(script) {
 
         stage('Pre Build - Details') {
             sprebuild.validation(p)
-            // sprebuild.details(p)
+            sprebuild.details(p)
         }
  
         // stage('Pre Build - Checkout & Test') {
