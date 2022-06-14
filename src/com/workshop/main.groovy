@@ -2,6 +2,7 @@
 package com.workshop
 
 import com.workshop.Config
+import com.workshop.Pipeline
 import com.workshop.stages.*
 
 def main(script) {
