@@ -4,6 +4,9 @@ package com.workshop.stages
 
 import com.workshop.Config
 import com.workshop.Pipeline
+import jenkins.model.Jenkins
+def envVars = Jenkins.instance.getGlobalNodeProperties()[0].getEnvVars() 
+
 
 def details(Pipeline p) {
    println("================\u001b[44mDetails Of Jobs\u001b[0m===============")
@@ -17,6 +20,7 @@ def details(Pipeline p) {
 
 
 def validation(Pipeline p) {
+    println envVars['JD_TO_PULL']
    if(!p.repository_name) {
        "Repository name can't be empty"
        error("ERROR101 - MISSING REPOSITORY_NAME")
