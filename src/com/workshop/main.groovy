@@ -43,12 +43,12 @@ def main(script) {
 
         stage('Pre Build - Details') {
             sprebuild.validation(p)
-            prebuild.details(p)
+            sprebuild.details(p)
         }
  
-        stage('Pre Build - Checkout & Test') {
-            sprebuild.checkoutBuildTest(p)
-        }
+        // stage('Pre Build - Checkout & Test') {
+        //     sprebuild.checkoutBuildTest(p)
+        // }
 
         // prebuild 
     //    stage('Pre Build - Details') {
