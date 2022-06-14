@@ -3,7 +3,6 @@ package com.workshop
 
 import com.workshop.Config
 import com.workshop.stages.*
-import com.workshop.Pipeline
 
 def main(script) {
     // Object initialization
